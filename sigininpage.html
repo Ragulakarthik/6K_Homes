@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="RKLOGO.png" type="image/x-icon">
+    <title>Signin Page</title>
+</head>
+<style>
+    #page{
+        width: 100%;
+        height: 700px;
+    }
+    #signinpage{
+        width: 500px;
+        height: 690px;
+        float: left;
+        margin-top: 1%;
+        margin-left:31%;
+        box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+        border: 1px solid black;
+    }
+    #name{
+        width: 294px;
+        height: 80px;
+        margin: 5%;
+    }
+    #signinform{
+        width: 500px;
+        height: 380px;
+        float: left;
+        margin-left: 5%;
+    }
+    label{
+        font-size: 20px;
+    }
+    input{
+        width: 440px;
+        height: 45px;
+        border-radius: 10px;
+        font-size: 18px;
+    }
+</style>
+<body>
+    <center>
+    <img src="RKLOGO.png" alt="Logo" style="width: 150px;">
+    <h1 style="font-size: 40px; margin: 0;">6K HOMES</h1>
+    </center>
+    <div id="page">
+        <div id="signinpage">
+            <div id="name">
+                <b style="font-size: 35px;">Sign-In</b>
+                <p style="margin: 0; font-size: 18px;">Already have an account? <a href="Loginpage.html">Login</a></p>
+            </div>
+            <div id="signinform">
+                <form action="connect.php" method="post" onsubmit="validateForm()">
+                    <label for="username">Username</label><br>
+                    <input type="text" id="username" name="username" placeholder="Username" required><br><br>
+                    <label for="email">Email Address</label><br>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required><br><br>
+                    <label for="password">Password</label><br>
+                    <input type="password" id="password" name="password" placeholder="Enter 6 character or more" required><br><br>
+                    <label for="confirm_password">Confirm Password</label><br>
+                    <input type="text" id="confirm_password" name="confirm_password" placeholder="Enter same as above" required><br><br>
+                    <label for="remember">
+                        <input type="checkbox" name="remember" style="float: left;  width: 20px; height: 20px;">Remember me
+                    </label><br><br>
+                    <input type="submit" name="submit" value="Sign in">
+                </form>
+                <h5>------------------------------------------or login with-----------------------------------------</h5>
+                <a href="https://accounts.google.com/">
+                <div style="float: left; width: 107px; height: 35px; margin-left: 15%;">
+                    <img src="google.png" alt="google" style="width: 27px;">
+                    <b style="font-size: 23px; color:rgb(222, 164, 29); float: right; margin-right: 9%; margin-top: 1%;">
+                        Google</b>
+                </div>
+                </a>
+                <a href="https://www.facebook.com/">
+                <div style="float: left; width: 135px; height: 35px; margin-left: 20%;">
+                    <img src="facebook.png" alt="facebook" style="width: 27px;">
+                    <b style="font-size: 23px; color:blue; float: right; margin-right: 9%; margin-top: 1%;">
+                        Facebook</b>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="6KHomes.js"></script>
+</body>
+</html>

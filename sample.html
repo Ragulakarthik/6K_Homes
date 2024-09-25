@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #accountDetails {
+            margin: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User Account Details</h1>
+        <button id="accountButton">Show Account Details</button>
+    </header>
+    <div id="accountDetails" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody id="accountTableBody">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const userDetails = {
+            name: "John Doe",
+            email: "john@example.com",
+            phone: "123-456-7890",
+            // Add more details as needed
+        };
+
+        function displayAccountDetails() {
+            const tbody = document.getElementById("accountTableBody");
+            tbody.innerHTML = ""; 
+            for (const key in userDetails) {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${key}</td>
+                    <td>${userDetails[key]}</td>
+                `;
+                tbody.appendChild(tr);
+            }
+        }
+
+        const accountButton = document.getElementById("accountButton");
+        const accountDetails = document.getElementById("accountDetails");
+
+        accountButton.addEventListener("click", function() {
+            if (accountDetails.style.display === "none") {
+                displayAccountDetails();
+                accountDetails.style.display = "block";
+                accountButton.textContent = "Hide Account Details";
+            } else {
+                accountDetails.style.display = "none";
+                accountButton.textContent = "Show Account Details";
+            }
+        });
+    </script>
+</body>
+</html>
