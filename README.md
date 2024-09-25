@@ -24,4 +24,4 @@
 
 1. Clone the repository to your local machine:
    ```bash
-   git clone https://github.com/yourusername/6K_homes.git
+   git clone https://github.com/Ragulakarthik/6K_homes.git
