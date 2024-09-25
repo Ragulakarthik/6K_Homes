@@ -1,0 +1,1183 @@
+<html>
+<head>
+    <title>6K HOMES</title>
+    <link rel="icon" href="RKLOGO.png" type="image/x-icon">
+    <link rel="stylesheet" href="6KHomes.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+<script src="6KHomes.js"></script>
+<script src="https://unpkg.com/leaflet"></script>
+<script>
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    function showAlertMessage() {
+        var message = getParameterByName('message');
+        if (message) {
+            alert(message);
+            lg.style.display='none';
+
+        }
+    }
+    window.onload = function() {
+        showAlertMessage();
+    };
+</script>
+<body>
+    <div id="nav">
+        <div id="logoname">
+            <img src="RKLOGO.png" alt="RKHOMESLOGO" style="width: 80px; float: left; margin-left: 30%;">
+            <b style="font-size: 35px; float: left; margin-left: 5%; margin-top: 0%;">6K HOMES</b>
+        </div>
+        <div id="navnames">
+            <li><a onclick="scrolltohome()" style="cursor: pointer;">Home</a></li>
+            <li><a onclick="scrolltoflatrecommendations()" style="cursor: pointer;">Buy</a></li>
+            <li><a onclick="scrolltoflatrecommendations()" style="cursor: pointer;">Sell</a></li>
+            <li><a onclick="scrolltoflatrecommendations()" style="cursor: pointer;">Rent</a></li>
+            <li><a onclick="scrolltoservices()" style="cursor: pointer;">Services</a></li>
+            <li><a onclick="scrolltoadvertise()" style="cursor: pointer;">Advertise</a></li>
+            <li><a onclick="scrolltoabout()" style="cursor: pointer;">Help</a></li>
+            <li id="lg"><a href="loginpage.html">Login</a></li>
+        </div>
+        <a onclick="profile()" style="cursor: pointer;">
+            <div id="loginimg">
+                <img id="loginimg" src="loginlogo.png" alt="Loginimg">
+            </div>
+        </a>
+    </div>
+    <div id="profilediv">
+        <button style="font-size: 22px; height: 50px; width: 150px; cursor: pointer;" >Account</button> <br>
+        <button style="font-size: 22px; height: 50px; width: 150px; cursor: pointer;">Edit Profile</button> <br>
+        <button style="font-size: 22px; height: 50px; width: 150px; cursor: pointer;" onclick="logout">Logout</button>
+    </div> 
+    <div id="homediv">
+        <div id="intro">
+            <p style="font-size: 40px;  font-weight: bold;">Unlock the Door to your Smile :)</b></p>
+            <p style="font-size: 28px; ;">Experience the <b>K</b>lean, <b>K</b>alm, and <b>K</b>omfort of our <b>K</b>lassic, <b>K</b>onvienent, and <b>K</b>ulture-inspired living spaces.</p>
+            <input type="text" placeholder="Search for your Home / Property" style="height: 50px; width: 555px; border-radius: 10px; font-size: 20px;">
+            <a href="Loginpage.html"><div id="started" style="height: 40px; width: 150px;border-radius: 10px; float: left; margin-top: 5%; margin-left: 30%; font-size: 20px; color:white;font-weight: bold; background-color: black;"><b style="float: left; margin-top: 5%; color: white;">Get Started Now</b></div></a>
+        </div>
+        <div id="introbg">
+            <img src="introbg.png" alt="introbg" style="height: 400px; width: 650px;">
+        </div>
+        <div id="houses">
+            <div id="marqueehouses">
+                    <div id="houseimg">
+                        <img src="house1.jpg" alt="house1" style="width: 600px;height: 600px;">
+                    </div>
+                    <div id="houseimg">
+                        <img src="house2.jpg" alt="house3" style="width: 600px;;height: 600px;">
+                    </div>
+                    <div id="houseimg">
+                        <img src="house3.jpg" alt="house3" style="width: 600px;;height: 600px;">
+                    </div>
+                    <div id="houseimg">
+                        <img src="house4.jpg" alt="house3" style="width: 600px;;height: 600px;">
+                    </div>
+                    <div id="houseimg">
+                        <img src="house5.jpg" alt="house5" style="width: 600px;;height: 600px;">
+                    </div>
+                    <div id="houseimg">
+                        <img src="house6.jpg" alt="house3" style="width: 600px;;height: 600px;">
+                    </div>
+            </div> 
+        </div>
+        <div id="flatrecommendations">
+            <a onclick="viewbuy()">
+                <div id="buyflat">
+                    <div id="buyflatimage">
+                        <img src="buyingimg.jpg" alt="buyingimg" style="height: 200px; width: 300px; border-radius: 5px;">
+                    </div>
+                    <b style="font-size: 22px; color:black;">Buy a Flat / Home</b><br>
+                    <p style="float: left;margin-left: 4%; font-size: 20px; margin-right: 4%;">Discover your dream flat with us. 
+                        Find the perfect fit, and make your home-buying journey enjoyable.</p>
+                    <input type="submit" id="browseflats" value="Browse Flats">
+                </div>
+            </a>    
+            <a href="sellflat.html" style="color: black;">      
+                <div id="sellflat">
+                    <div id="sellflatimage">
+                        <img src="sellingimg.jpg" alt="sellingimg" style="height: 200px; width: 300px; border-radius: 5px;">
+                    </div> 
+                    <b style="font-size: 22px; color: black;">Sell a Flat / Home</b><br>
+                    <p style="float: left;margin-left: 4%; font-size: 20px; margin-right: 4%;">List your property and connect with potential buyers to make a successful sale.
+                    Sell your flat quickly and easily.</p>
+                    <input type="submit" id="seeyouroptions" value="See your options">
+                </div>
+            </a>  
+            <a onclick="viewrent()">
+                <div id="rentflat">
+                    <div id="rentflatimage">
+                        <img src="rentingimg.jpg" alt="rentingimg" style="height: 200px; width: 300px; border-radius: 5px;">
+                    </div>
+                    <b style="font-size: 22px; color:black;">Homes for Rent</b><br>
+                    <p style="float: left;margin-left: 4%; font-size: 20px; margin-right: 4%;">Put your flat up for rent easily. 
+                        Find good tenants and manage your rentals without any trouble with our service.</p>
+                    <input type="submit" id="findrentals" value="Find rentals">
+                </div>
+            </a>
+        </div>
+
+        <div id="platformservices">
+            <div style="width: 100%; height: 45px; font-weight: bold; font-size: 40px; float: left;text-align: center;">
+                <b >"</b>6K HOMES India's No-1 Platform<b>"</b>
+            </div>
+            <div style=" height: 100px; width: 100%; ; font-size: 25px; text-align: center; float: left; margin-top: 1%; ">
+                <p style="margin: 12%; margin-top: 1%;">Indian cities offer various properties for buying or investing, presenting abundant choices and investment prospects.</p>
+            </div>
+            <div id="ser1">
+                <img src="ap.jpg" alt="SBA" style="width: 270px; height: 150px; float: left; margin-top: 6%; margin-left: 5%;">
+                <center><p style=" font-size: 20px; padding: 5%; font-weight:bold;">AndhraPradesh</p></center>
+            </div>
+            <div id="ser2">
+                <img src="hyderabad.jpg" alt="CG" style="width: 270px; height: 150px;float: left; margin-top: 6%; margin-left: 5%;">
+                <center><p style=" font-size: 20px;padding: 5%;font-weight:bold;">Hyderabad</p></center>              
+            </div>
+            <div id="ser3">
+                <img src="banglore.jpg" alt="IGM" style="width: 270px; height: 150px;float: left; margin-top: 6%; margin-left: 5%;">
+                <center><p style=" font-size: 20px;padding: 5%;font-weight:bold;">Banglore</p></center>
+            </div>
+            <div id="ser4">
+                <img src="chennai.jpg" alt="HD" style="width: 270px; height: 150px;float: left; margin-top: 6%; margin-left: 5%;">
+                <center><p style=" font-size: 20px;padding: 5%;font-weight:bold;">Chennai</p></center>
+            </div>
+            <div id="ser5">
+                <img src="mumbai.jpg" alt="COM" style="width: 270px; height: 150px;float: left; margin-top: 6%; margin-left: 5%;">
+                <center><p style="font-size: 20px;padding: 5%;font-weight:bold;">Mumbai</p></center>
+            </div>
+            <div id="ser6">
+                <img src="kolkata.jpg" alt="VS" style="width: 270px; height: 150px;float: left; margin-top: 6%; margin-left: 5%;">
+                <center><p style=" font-size: 20px;padding: 5%;font-weight:bold;">Kolkata</p></center>  
+            </div>
+            <div id="ser7">
+                <img src="pune.jpg" alt="FM" style="width: 270px; height: 150px;float: left; margin-top: 6%; margin-left: 5%;">
+                <center><p style="font-size: 20px;padding: 5%;font-weight:bold;">Pune</p></center>
+            </div>
+            <div id="ser8">
+                <img src="delhi.png" alt="TM" style="width: 270px; height: 150px;;float: left; margin-top: 6%; margin-left: 5%;">
+                <center><p style=" font-size: 20px;padding: 5%;font-weight:bold;">Delhi</p></center>
+            </div>
+        </div>
+        <div id="partners">
+            <div style="width: 100%; height: 30px; font-size: 30px;font-weight: bold; text-align: center;">Our Trusted Partners</div>
+            <div id="marquee">
+                <div id="partner1">
+                    <div id="partnerlogo">
+                        <img src="partner1logo.png" alt="NewsAlert" style="width: 100px;">
+                    </div>
+                    <b style="float: left; font-size: 30px; margin-left: 15%; color: #203966;">NewsAlert</b>
+                </div>
+                <div id="partner2">
+                    <div style="width: 120px; height: 120px; border-radius: 10px; float: left; margin-left: 19%; box-shadow: 5px 5px 10px rgba(4, 208, 208, 0.468);">
+                        <img src="partner2logo.png" alt="GadgetGalaxy" style="width: 100px; float: left; margin-top: 15%; margin-left: 6%; ">
+                    </div>
+                    <b style="float: left; font-size: 30px; margin-left: 4%;">GadgetGalaxy</b>
+                </div>
+                <div id="partner3">
+                    <div id="partnerlogo">
+                        <img src="partner1logo.png" alt="NewsAlert" style="width: 100px;">
+                    </div>
+                    <b style="float: left; font-size: 30px; margin-left: 15%; color: #203966;">NewsAlert</b>
+                </div>
+                <div id="partner4">
+                    <div style="width: 120px; height: 120px; border-radius: 10px; float: left; margin-left: 19%; box-shadow: 5px 5px 10px rgba(4, 208, 208, 0.468);">
+                        <img src="partner2logo.png" alt="GadgetGalaxy" style="width: 100px; float: left; margin-top: 15%; margin-left: 6%; ">
+                    </div>
+                    <b style="float: left; font-size: 30px; margin-left: 4%;">GadgetGalaxy</b>
+                </div>
+                <div id="partner5">
+                    <div id="partnerlogo">
+                        <img src="partner1logo.png" alt="NewsAlert" style="width: 100px;">
+                    </div>
+                    <b style="float: left; font-size: 30px; margin-left: 15%; color: #203966;">NewsAlert</b>
+                </div>
+                <div id="partner6">
+                    <div style="width: 120px; height: 120px; border-radius: 10px; float: left; margin-left: 19%; box-shadow: 5px 5px 10px rgba(4, 208, 208, 0.468);">
+                        <img src="partner2logo.png" alt="GadgetGalaxy" style="width: 100px; float: left; margin-top: 15%; margin-left: 6%; ">
+                    </div>
+                    <b style="float: left; font-size: 30px; margin-left: 4%;">GadgetGalaxy</b>
+                </div>
+                <div id="partner7">
+                    <div id="partnerlogo">
+                        <img src="partner1logo.png" alt="NewsAlert" style="width: 100px;">
+                    </div>
+                    <b style="float: left; font-size: 30px; margin-left: 15%; color: #203966;">NewsAlert</b>
+                </div>
+                <div id="partner8">
+                    <div style="width: 120px; height: 120px; border-radius: 10px; float: left; margin-left: 19%; box-shadow: 5px 5px 10px rgba(4, 208, 208, 0.468);">
+                        <img src="partner2logo.png" alt="GadgetGalaxy" style="width: 100px; float: left; margin-top: 15%; margin-left: 6%; ">
+                    </div>
+                    <b style="float: left; font-size: 30px; margin-left: 4%;">GadgetGalaxy</b>
+                </div>
+                <div id="partner9">
+                    <div id="partnerlogo">
+                            <img src="partner1logo.png" alt="NewsAlert" style="width: 100px;">
+                    </div>
+                    <b style="float: left; font-size: 30px; margin-left: 15%; color: #203966;">NewsAlert</b>
+                </div>
+                <div id="partner10">
+                    <div style="width: 120px; height: 120px; border-radius: 10px; float: left; margin-left: 19%; box-shadow: 5px 5px 10px rgba(4, 208, 208, 0.468);">
+                        <img src="partner2logo.png" alt="GadgetGalaxy" style="width: 100px; float: left; margin-top: 15%; margin-left: 6%; ">
+                    </div>
+                    <b style="float: left; font-size: 30px; margin-left: 4%;">GadgetGalaxy</b>
+                </div>
+            </div>
+        </div>
+        <div id="reviews">
+            <div id="rev" style="font-size: 30px;height: 50px; width: 100%;">
+                <center><p style="font-weight: bold; margin: 0.5%;">Praise from our Happy Kustomers</p></center>
+            </div>
+            <div id="rv1">
+                <p style="font-size: 20px; text-align: left; float:  left;margin: 2%; padding: 5%;">
+                    <b>"</b>Your website is a treasure trove for investors. Detailed property listings, market insights, and financial 
+                    tools helped me make informed decisions. Highly recommend for real estate investors!<b>"</b>
+                </p>
+                <p style=" font-weight: bold;margin: 2%; padding: 5%; font-style: italic;">Nithesh, Committee Member</p>
+            </div>
+            <div id="rv2">
+                <p style="font-size: 20px; text-align: left; float:  left;margin: 2%; padding: 5%;">
+                    <b>"</b>As a busy professional, I appreciate how easy it is to find suitable properties on your website. 
+                    The user-friendly interface and comprehensive listings saved my valuable time. 
+                    Thanks to your efficient service, I found my new home without any hassle.<b>"</b>
+                </p>
+                <p style=" font-weight: bold;margin: 2%; padding: 5%; font-style: italic;">Yeswanth, Customer</p>
+            </div>
+            <div id="rv3">
+                <p style="font-size: 20px; text-align: left; float:  left;margin: 2%; padding: 5%;">
+                    <b >"</b>This website is a time-saver! With advanced search filters and online scheduling, finding my dream home was effortless. 
+                    A convenient solution for busy professionals like me<b>"</b>
+                </p>
+                <p style=" font-weight: bold;margin: 2%; padding: 5%; font-style: italic;">Md. Raiyan <br>
+                                                                                    K.V Kalyan <br>
+                                                                                    Committee Members</p>
+            </div>
+            <div id="rv4">
+                <p style="font-size: 20px; text-align: left; float:  left;margin: 2%; padding: 5%;">
+                    <b >"</b>RK Homes' website caters to families like mine. Neighborhood guides and school info made 
+                    finding the perfect home easy. Property descriptions highlighted family-friendly features. 
+                    Highly recommended for families!<b>"</b>
+                </p>
+                <p style="font-weight: bold;margin: 2%; padding: 5%; font-style: italic;">Munikumar, Member</p>
+            </div>
+        </div>
+        <div id="about">
+            <div id="about1">
+                <b style=" font-size: 25px;">About 6K HOMES</b>
+                <br>
+                <ul style="font-size: 20px; list-style-type:none; display: inline;">
+                    <li><a onclick="scrolltohome()" style="cursor: pointer;">Home</a></li>
+                    <li><a href="https://www.google.com/maps/place/Mohan+Babu+University/@13.6234252,79.2828126,14.63z/data=!4m6!3m5!1s0x3bb2b511cbefcaf3:0x4eb0b29e1d33b522!8m2!3d13.623708!4d79.289208!16s%2Fg%2F11swp9lkwj?entry=ttu" style="cursor: pointer;">Site Map</a></li>
+                    <li><a></a>About Us</li>
+                    <li><a></a>Terms and Conditions</li>
+                    <li><a></a>Partner Community</li>
+                </ul>
+            </div>
+            <div id="about2">
+                <b style="font-size: 25px;">Quick Links</b>
+                <br>
+                <ul style="font-size: 20px; list-style-type:none; display: inline;">
+                    <li><a onclick="scrolltoflatrecommendations()" style="cursor: pointer;">Buy</a></li>
+                    <li><a onclick="scrolltoflatrecommendations()" style="cursor: pointer;">Sell</a></li>
+                    <li><a onclick="scrolltoflatrecommendations()" style="cursor: pointer;">Rent</a></li>
+                    <li><a onclick="scrolltoservices()" style="cursor: pointer;">Services</a></li>
+                    <li><a onclick="scrolltoadvertise()" style="cursor: pointer;">Advertise</a></li>
+                    <li><a onclick="scrolltoabout()" style="cursor: pointer;">Help</a></li>
+                </ul>
+            </div>
+            <div id="aboutweb">
+                <div id="logoname" style="margin-left: 17%;">
+                    <img src="RKLOGO.png" alt="RKHOMESLOGO" style="width: 50px;">
+                    <b style="font-size: 30px; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">6K HOMES</b>
+                </div>
+                <br>
+                <br>
+                <p id="aboutcom" style="font-size: 20px; margin: 0; padding: 7%;">Your Trusted Home Companion. Experience hassle-free living, personalized service, and a wide 
+                    selection of quality properties. Find your perfect home with ease at 6K Homes!
+                </p>
+            </div>
+            <div id="about3">
+                <b style="font-size: 25px;">Reach out to us</b>
+                <ul style="font-size: 20px; list-style-type:none; display: inline;">
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+                        </svg>
+                        <a href="mailto:ragulakarthik04@gmail.com">Send Email</a>
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-minus" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5"/>
+                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+                        </svg>
+                        +91 8008041620
+                    </li>
+                </ul>
+            </div>
+            <div id="about4">
+                <b style="font-size: 25px;">Connect</b>
+                <br>
+                <ul style="font-size: 20px; list-style-type:none; display: inline;">
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="blue" class="bi bi-facebook" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                        </svg>
+                        <a href="https://www.facebook.com/karthik.ragula.77">Facebook</a>
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF0CE9" class="bi bi-instagram" viewBox="0 0 16 16" >
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                        </svg>
+                        <a href="https://www.instagram.com/karthikragula04/">Instagram</a>
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="blue" class="bi bi-linkedin" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                        </svg>
+                        <a href="https://www.linkedin.com/in/karthik-ragula-5a5b94220/">Linked in</a>
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-youtube" viewBox="0 0 16 16">
+                            <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+                        </svg>
+                        <a href="https://www.youtube.com/channel/UCsx1SMM76CaKsCGVN6BCQKQ">Youtube</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer class="footer">
+            &copy Copyright 2024, 6K HOMES, All rights reserved
+        </footer>
+    </div>
+    <div id="homediv1">
+        <b style="font-size: 30px;margin-left: 34%; float: left;">Explore the Interior of the house</b>
+        <button onclick="closediv('homediv1')" style="font-size: 26px; margin-left: 27%;">&#215;</button>
+        <div class="homeslideshow1">
+            <button onclick="showSlide('homediv1', -1)" style="float: left; position: absolute;float: left; top: 45%;font-size: 30px;">&#9664;</button>
+            <img class="slideshow-image" src="" alt="">
+            <button onclick="showSlide('homediv1', 1)" style="float: right; position:absolute; top: 45%;margin-left: 94%;font-size: 30px;">&#9654;</button>
+        </div>
+        <div id="homedetails1">
+            <center><h2>What's special</h2></center>
+            <b id="hd2">Bedrooms & bathrooms</b>
+                <li id="hd2">Bedrooms: 2</li>
+                <li id="hd2">Bathrooms: 2</li>
+                <li id="hd2">Full bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+            <b id="hd2">Bathroom</b>
+                <li id="hd2">Features: Shower Stall(s)</li>
+            <b id="hd2">Heating</b>
+                <li id="hd2">Heating features: Central</li>
+            <b id="hd2">Cooling</b>
+                <li id="hd2">Cooling features: None</li>
+            <b id="hd2">Appliances</b>
+                <li id="hd2">Laundry features: Hookups Only</li>
+            <b id="hd2">Other interior features</b>
+                <li id="hd2">Total structure area: 984</li>
+                <li id="hd2">Total interior livable area: 984 sqft</li>
+        </div>
+        <div id="homedesc1" style="font-size: 20px;">
+            <b style="font-size: 25px;">Description</b><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spacious double-wide manufactured home in Napa Valley Manors' 55+ senior park. With 3 bedrooms and 2 bathrooms, 
+            there is ample space to tailor to your preferences. The dining/family combo is a functional space with high 
+            ceilings and lots of natural light. The spacious kitchen connects to the laundry area, leading to the covered 
+            carport and backyard area.   
+        </div>
+    </div>
+    <div id="homediv2">
+        <b style="font-size: 30px;margin-left: 34%; float: left;">Explore the Interior of the house</b>
+        <button onclick="closediv('homediv2')" style="font-size: 26px; margin-left: 27%; float: left;">&#215;</button>
+        <div class="homeslideshow2">
+            <button onclick="showSlide('homediv2', -1)" style="float: left; position: absolute;float: left; top: 45%;font-size: 30px;">&#9664;</button>
+            <img class="slideshow-image" src="" alt="">
+            <button onclick="showSlide('homediv2', 1)" style="float: right; position:absolute; top: 45%;margin-left: 94%;font-size: 30px;">&#9654;</button>
+        </div>
+        <div id="homedetails2">
+            <center><h2>What's special</h2></center>
+            <b id="hd2">Bedrooms & bathrooms</b>
+                <li id="hd2">Bedrooms: 2</li>
+                <li id="hd2">Bathrooms: 2</li>
+                <li id="hd2">Full bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+            <b id="hd2">Bathroom</b>
+                <li id="hd2">Features: Shower Stall(s)</li>
+            <b id="hd2">Heating</b>
+                <li id="hd2">Heating features: Central</li>
+            <b id="hd2">Cooling</b>
+                <li id="hd2">Cooling features: None</li>
+            <b id="hd2">Appliances</b>
+                <li id="hd2">Laundry features: Hookups Only</li>
+            <b id="hd2">Other interior features</b>
+                <li id="hd2">Total structure area: 984</li>
+                <li id="hd2">Total interior livable area: 984 sqft</li>
+        </div>
+        <div id="homedesc2" style="font-size: 20px;">
+            <b style="font-size: 25px;">Description</b><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spacious double-wide manufactured home in Napa Valley Manors' 55+ senior park. With 3 bedrooms and 2 bathrooms, 
+            there is ample space to tailor to your preferences. The dining/family combo is a functional space with high 
+            ceilings and lots of natural light. The spacious kitchen connects to the laundry area, leading to the covered 
+            carport and backyard area.    
+        </div>
+    </div>
+    <div id="homediv3">
+        <b style="font-size: 30px;margin-left: 34%; float: left;">Explore the Interior of the house</b>
+        <button onclick="closediv('homediv3')" style="font-size: 26px; margin-left: 27%; float: left;">&#215;</button>
+        <div class="homeslideshow3">
+            <button onclick="showSlide('homediv3', -1)" style="float: left; position: absolute;float: left; top: 45%;font-size: 30px;">&#9664;</button>
+            <img class="slideshow-image" src="" alt="">
+            <button onclick="showSlide('homediv3', 1)" style="float: right; position:absolute; top: 45%;margin-left: 94%;font-size: 30px;">&#9654;</button>
+        </div>
+        <div id="homedetails3">
+            <center><h2>What's special</h2></center>
+            <b id="hd2">Bedrooms & bathrooms</b>
+                <li id="hd2">Bedrooms: 2</li>
+                <li id="hd2">Bathrooms: 2</li>
+                <li id="hd2">Full bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+            <b id="hd2">Bathroom</b>
+                <li id="hd2">Features: Shower Stall(s)</li>
+            <b id="hd2">Heating</b>
+                <li id="hd2">Heating features: Central</li>
+            <b id="hd2">Cooling</b>
+                <li id="hd2">Cooling features: None</li>
+            <b id="hd2">Appliances</b>
+                <li id="hd2">Laundry features: Hookups Only</li>
+            <b id="hd2">Other interior features</b>
+                <li id="hd2">Total structure area: 984</li>
+                <li id="hd2">Total interior livable area: 984 sqft</li>
+        </div>
+        <div id="homedesc3" style="font-size: 20px;">
+            <b style="font-size: 25px;">Description</b><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spacious double-wide manufactured home in Napa Valley Manors' 55+ senior park. With 3 bedrooms and 2 bathrooms, 
+            there is ample space to tailor to your preferences. The dining/family combo is a functional space with high 
+            ceilings and lots of natural light. The spacious kitchen connects to the laundry area, leading to the covered 
+            carport and backyard area.   
+        </div>
+    </div>
+    <div id="homediv4">
+        <b style="font-size: 30px;margin-left: 34%; float: left;">Explore the Interior of the house</b>
+        <button onclick="closediv('homediv4')" style="font-size: 26px; margin-left: 27%; float: left;">&#215;</button>
+        <div class="homeslideshow4">
+            <button onclick="showSlide('homediv4', -1)" style="float: left; position: absolute;float: left; top: 45%;font-size: 30px;">&#9664;</button>
+            <img class="slideshow-image" src="" alt="">
+            <button onclick="showSlide('homediv4', 1)" style="float: right; position:absolute; top: 45%;margin-left: 94%;font-size: 30px;">&#9654;</button>
+        </div>
+        <div id="homedetails4">
+            <center><h2>What's special</h2></center>
+            <b id="hd2">Bedrooms & bathrooms</b>
+                <li id="hd2">Bedrooms: 2</li>
+                <li id="hd2">Bathrooms: 2</li>
+                <li id="hd2">Full bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+            <b id="hd2">Bathroom</b>
+                <li id="hd2">Features: Shower Stall(s)</li>
+            <b id="hd2">Heating</b>
+                <li id="hd2">Heating features: Central</li>
+            <b id="hd2">Cooling</b>
+                <li id="hd2">Cooling features: None</li>
+            <b id="hd2">Appliances</b>
+                <li id="hd2">Laundry features: Hookups Only</li>
+            <b id="hd2">Other interior features</b>
+                <li id="hd2">Total structure area: 984</li>
+                <li id="hd2">Total interior livable area: 984 sqft</li>
+        </div>
+        <div id="homedesc4" style="font-size: 20px;">
+            <b style="font-size: 25px;">Description</b><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spacious double-wide manufactured home in Napa Valley Manors' 55+ senior park. With 3 bedrooms and 2 bathrooms, 
+            there is ample space to tailor to your preferences. The dining/family combo is a functional space with high 
+            ceilings and lots of natural light. The spacious kitchen connects to the laundry area, leading to the covered 
+            carport and backyard area.   
+        </div>
+    </div>
+    <div id="homediv5">
+        <b style="font-size: 30px;margin-left: 34%; float: left;">Explore the Interior of the house</b>
+        <button onclick="closediv('homediv5')" style="font-size: 26px; margin-left: 27%; float: left;">&#215;</button>
+        <div class="homeslideshow5">
+            <button onclick="showSlide('homediv5', -1)" style="float: left; position: absolute;float: left; top: 45%;font-size: 30px;">&#9664;</button>
+            <img class="slideshow-image" src="" alt="">
+            <button onclick="showSlide('homediv5', 1)" style="float: right; position:absolute; top: 45%;margin-left: 94%;font-size: 30px;">&#9654;</button>
+        </div>
+        <div id="homedetails5">
+            <center><h2>What's special</h2></center>
+            <b id="hd2">Bedrooms & bathrooms</b>
+                <li id="hd2">Bedrooms: 2</li>
+                <li id="hd2">Bathrooms: 2</li>
+                <li id="hd2">Full bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+            <b id="hd2">Bathroom</b>
+                <li id="hd2">Features: Shower Stall(s)</li>
+            <b id="hd2">Heating</b>
+                <li id="hd2">Heating features: Central</li>
+            <b id="hd2">Cooling</b>
+                <li id="hd2">Cooling features: None</li>
+            <b id="hd2">Appliances</b>
+                <li id="hd2">Laundry features: Hookups Only</li>
+            <b id="hd2">Other interior features</b>
+                <li id="hd2">Total structure area: 984</li>
+                <li id="hd2">Total interior livable area: 984 sqft</li>
+        </div>
+        <div id="homedesc5" style="font-size: 20px;">
+            <b style="font-size: 25px;">Description</b><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spacious double-wide manufactured home in Napa Valley Manors' 55+ senior park. With 3 bedrooms and 2 bathrooms, 
+            there is ample space to tailor to your preferences. The dining/family combo is a functional space with high 
+            ceilings and lots of natural light. The spacious kitchen connects to the laundry area, leading to the covered 
+            carport and backyard area.   
+        </div>
+    </div>
+    <div id="homediv6">
+        <b style="font-size: 30px;margin-left: 34%; float: left;">Explore the Interior of the house</b>
+        <button onclick="closediv('homediv6')" style="font-size: 26px; margin-left: 27%; float: left;">&#215;</button>
+        <div class="homeslideshow6">
+            <button onclick="showSlide('homediv6', -1)" style="float: left; position: absolute;float: left; top: 45%;font-size: 30px;">&#9664;</button>
+            <img class="slideshow-image" src="" alt="">
+            <button onclick="showSlide('homediv6', 1)" style="float: right; position:absolute; top: 45%;margin-left: 94%;font-size: 30px;">&#9654;</button>
+        </div>
+        <div id="homedetails6">
+            <center><h2>What's special</h2></center>
+            <b id="hd2">Bedrooms & bathrooms</b>
+                <li id="hd2">Bedrooms: 2</li>
+                <li id="hd2">Bathrooms: 2</li>
+                <li id="hd2">Full bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+            <b id="hd2">Bathroom</b>
+                <li id="hd2">Features: Shower Stall(s)</li>
+            <b id="hd2">Heating</b>
+                <li id="hd2">Heating features: Central</li>
+            <b id="hd2">Cooling</b>
+                <li id="hd2">Cooling features: None</li>
+            <b id="hd2">Appliances</b>
+                <li id="hd2">Laundry features: Hookups Only</li>
+            <b id="hd2">Other interior features</b>
+                <li id="hd2">Total structure area: 984</li>
+                <li id="hd2">Total interior livable area: 984 sqft</li>
+        </div>
+        <div id="homedesc6" style="font-size: 20px;">
+            <b style="font-size: 25px;">Description</b><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spacious double-wide manufactured home in Napa Valley Manors' 55+ senior park. With 3 bedrooms and 2 bathrooms, 
+            there is ample space to tailor to your preferences. The dining/family combo is a functional space with high 
+            ceilings and lots of natural light. The spacious kitchen connects to the laundry area, leading to the covered 
+            carport and backyard area.   
+        </div>
+    </div>
+    <div id="homediv7">
+        <b style="font-size: 30px;margin-left: 34%; float: left;">Explore the Interior of the house</b>
+        <button onclick="closediv('homediv7')" style="font-size: 26px; margin-left: 27%; float: left;">&#215;</button>
+        <div class="homeslideshow7">
+            <button onclick="showSlide('homediv7', -1)" style="float: left; position: absolute;float: left; top: 45%;font-size: 30px;">&#9664;</button>
+            <img class="slideshow-image" src="" alt="">
+            <button onclick="showSlide('homediv7', 1)" style="float: right; position:absolute; top: 45%;margin-left: 94%;font-size: 30px;">&#9654;</button>
+        </div>
+        <div id="homedetails7">
+            <center><h2>What's special</h2></center>
+            <b id="hd2">Bedrooms & bathrooms</b>
+                <li id="hd2">Bedrooms: 2</li>
+                <li id="hd2">Bathrooms: 2</li>
+                <li id="hd2">Full bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+            <b id="hd2">Bathroom</b>
+                <li id="hd2">Features: Shower Stall(s)</li>
+            <b id="hd2">Heating</b>
+                <li id="hd2">Heating features: Central</li>
+            <b id="hd2">Cooling</b>
+                <li id="hd2">Cooling features: None</li>
+            <b id="hd2">Appliances</b>
+                <li id="hd2">Laundry features: Hookups Only</li>
+            <b id="hd2">Other interior features</b>
+                <li id="hd2">Total structure area: 984</li>
+                <li id="hd2">Total interior livable area: 984 sqft</li>
+        </div>
+        <div id="homedesc7" style="font-size: 20px;">
+            <b style="font-size: 25px;">Description</b><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spacious double-wide manufactured home in Napa Valley Manors' 55+ senior park. With 3 bedrooms and 2 bathrooms, 
+            there is ample space to tailor to your preferences. The dining/family combo is a functional space with high 
+            ceilings and lots of natural light. The spacious kitchen connects to the laundry area, leading to the covered 
+            carport and backyard area.   
+        </div>
+    </div>
+    <div id="homediv8">
+        <b style="font-size: 30px;margin-left: 34%; float: left;">Explore the Interior of the house</b>
+        <button onclick="closediv('homediv8')" style="font-size: 26px; margin-left: 27%; float: left;">&#215;</button>
+        <div class="homeslideshow8">
+            <button onclick="showSlide('homediv8', -1)" style="float: left; position: absolute;float: left; top: 45%;font-size: 30px;">&#9664;</button>
+            <img class="slideshow-image" src="" alt="">
+            <button onclick="showSlide('homediv8', 1)" style="float: right; position:absolute; top: 45%;margin-left: 94%;font-size: 30px;">&#9654;</button>
+        </div>
+        <div id="homedetails8">
+            <center><h2>What's special</h2></center>
+            <b id="hd2">Bedrooms & bathrooms</b>
+                <li id="hd2">Bedrooms: 2</li>
+                <li id="hd2">Bathrooms: 2</li>
+                <li id="hd2">Full bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+            <b id="hd2">Bathroom</b>
+                <li id="hd2">Features: Shower Stall(s)</li>
+            <b id="hd2">Heating</b>
+                <li id="hd2">Heating features: Central</li>
+            <b id="hd2">Cooling</b>
+                <li id="hd2">Cooling features: None</li>
+            <b id="hd2">Appliances</b>
+                <li id="hd2">Laundry features: Hookups Only</li>
+            <b id="hd2">Other interior features</b>
+                <li id="hd2">Total structure area: 984</li>
+                <li id="hd2">Total interior livable area: 984 sqft</li>
+        </div>
+        <div id="homedesc8" style="font-size: 20px;">
+            <b style="font-size: 25px;">Description</b><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spacious double-wide manufactured home in Napa Valley Manors' 55+ senior park. With 3 bedrooms and 2 bathrooms, 
+            there is ample space to tailor to your preferences. The dining/family combo is a functional space with high 
+            ceilings and lots of natural light. The spacious kitchen connects to the laundry area, leading to the covered 
+            carport and backyard area.   
+        </div>
+    </div>
+    <div id="homediv9">
+        <b style="font-size: 30px;margin-left: 34%; float: left;">Explore the Interior of the house</b>
+        <button onclick="closediv('homediv9')" style="font-size: 26px; margin-left: 27%; float: left;">&#215;</button>
+        <div class="homeslideshow9">
+            <button onclick="showSlide('homediv9', -1)" style="float: left; position: absolute;float: left; top: 45%;font-size: 30px;">&#9664;</button>
+            <img class="slideshow-image" src="" alt="">
+            <button onclick="showSlide('homediv9', 1)" style="float: right; position:absolute; top: 45%;margin-left: 94%;font-size: 30px;">&#9654;</button>
+        </div>
+        <div id="homedetails9">
+            <center><h2>What's special</h2></center>
+            <b id="hd2">Bedrooms & bathrooms</b>
+                <li id="hd2">Bedrooms: 2</li>
+                <li id="hd2">Bathrooms: 2</li>
+                <li id="hd2">Full bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+            <b id="hd2">Bathroom</b>
+                <li id="hd2">Features: Shower Stall(s)</li>
+            <b id="hd2">Heating</b>
+                <li id="hd2">Heating features: Central</li>
+            <b id="hd2">Cooling</b>
+                <li id="hd2">Cooling features: None</li>
+            <b id="hd2">Appliances</b>
+                <li id="hd2">Laundry features: Hookups Only</li>
+            <b id="hd2">Other interior features</b>
+                <li id="hd2">Total structure area: 984</li>
+                <li id="hd2">Total interior livable area: 984 sqft</li>
+        </div>
+        <div id="homedesc9" style="font-size: 20px;">
+            <b style="font-size: 25px;">Description</b><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spacious double-wide manufactured home in Napa Valley Manors' 55+ senior park. With 3 bedrooms and 2 bathrooms, 
+            there is ample space to tailor to your preferences. The dining/family combo is a functional space with high 
+            ceilings and lots of natural light. The spacious kitchen connects to the laundry area, leading to the covered 
+            carport and backyard area.   
+        </div>
+    </div>
+    <div id="homediv10">
+        <b style="font-size: 30px;margin-left: 34%; float: left;">Explore the Interior of the house</b>
+        <button onclick="closediv('homediv10')" style="font-size: 26px; margin-left: 27%; float: left;">&#215;</button>
+        <div class="homeslideshow10">
+            <button onclick="showSlide('homediv10', -1)" style="float: left; position: absolute;float: left; top: 45%;font-size: 30px;">&#9664;</button>
+            <img class="slideshow-image" src="" alt="">
+            <button onclick="showSlide('homediv10', 1)" style="float: right; position:absolute; top: 45%;margin-left: 94%;font-size: 30px;">&#9654;</button>
+        </div>
+        <div id="homedetails10">
+            <center><h2>What's special</h2></center>
+            <b id="hd2">Bedrooms & bathrooms</b>
+                <li id="hd2">Bedrooms: 2</li>
+                <li id="hd2">Bathrooms: 2</li>
+                <li id="hd2">Full bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+                <li id="hd2">1/2 bathrooms: 1</li>
+            <b id="hd2">Bathroom</b>
+                <li id="hd2">Features: Shower Stall(s)</li>
+            <b id="hd2">Heating</b>
+                <li id="hd2">Heating features: Central</li>
+            <b id="hd2">Cooling</b>
+                <li id="hd2">Cooling features: None</li>
+            <b id="hd2">Appliances</b>
+                <li id="hd2">Laundry features: Hookups Only</li>
+            <b id="hd2">Other interior features</b>
+                <li id="hd2">Total structure area: 984</li>
+                <li id="hd2">Total interior livable area: 984 sqft</li>
+        </div>
+        <div id="homedesc10" style="font-size: 20px;">
+            <b style="font-size: 25px;">Description</b><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spacious double-wide manufactured home in Napa Valley Manors' 55+ senior park. With 3 bedrooms and 2 bathrooms, 
+            there is ample space to tailor to your preferences. The dining/family combo is a functional space with high 
+            ceilings and lots of natural light. The spacious kitchen connects to the laundry area, leading to the covered 
+            carport and backyard area.   
+        </div>
+    </div>
+    <div id="viewbuy">
+        <div id="map1">
+        </div>
+        <div id="houselist">
+            <div id="houselisttitle" style="margin-top: 2%;height: 30px;">
+                <center><font style="font-size: 25px; font-weight: bold;">Real Estate & Homes for Sale</font></center>
+            </div>
+            <div id="houselistcount" style="margin-top: 1%; height: 30px;  ">
+                <font style="font-size: 18px; font-weight: bold; float: left;">10 results found</font>
+                <font style="font-size: 18px; font-weight: bold; float: right;">Filter</font>
+            </div>
+            <div id="shuffle-div">
+                <div id="home">
+                    <a onclick="showhomediv('homediv1')" style="cursor: pointer;">
+                    <div id="homeimg">
+                        <img src="home1.jpg" alt="home1" >
+                    </div>
+                    </a>
+                    <center>
+                    <div class="rating" data-rating="0">
+                        <span class="star" data-value="1">&#9733;</span>
+                        <span class="star" data-value="2">&#9733;</span>
+                        <span class="star" data-value="3">&#9733;</span>
+                        <span class="star" data-value="4">&#9733;</span>
+                        <span class="star" data-value="5">&#9733;</span>
+                    </div>
+                    <b style="font-size: 20px;">&#x20B9;1,59,999</b><br>
+                    2 bds | 2 ba | 984sqft - Home for sale <br>
+                    12-345, Reddy Street, Gandhi Nagar <br>
+                    Kadapa
+                </center>
+                </div>
+                    <div id="home">
+                        <a onclick="showhomediv('homediv2')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home2.jpg" alt="home2" >
+                        </div>
+                    </a>
+                        <center>
+                        <div class="rating" data-rating="0">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <b style="font-size: 20px;">&#x20B9;1,79,000</b><br>
+                        3 bds | 2 ba | 960sqft - Home for sale <br>
+                        7/89, Raju Colony, RTC Road <br>
+                        Kadapa
+                    </center>
+                    </div>
+                
+                    <div id="home">
+                        <a onclick="showhomediv('homediv3')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home3.jpg" alt="home3" >
+                        </div>
+                        </a>
+                        <center>
+                        <div class="rating" data-rating="0">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <b style="font-size: 20px;">&#x20B9;1,89,000</b><br>
+                        2 bds | 2 ba | 1260sqft - Home for sale <br>
+                        23-456, Prakash Nagar, Railway Colony <br>
+                        Kadapa
+                    </center>
+                    </div>
+                </a>
+                
+                    <div id="home">
+                        <a onclick="showhomediv('homediv4')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home4.jpg" alt="home4" >
+                        </div>
+                    </a>
+                        <center>
+                        <div class="rating" data-rating="0">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <b style="font-size: 20px;">&#x20B9;2,49,000</b><br>
+                        2 bds | 2 ba | 1344sqft - Home for sale <br>
+                        6/78, Venkataramana Colony, Pulivendula Road <br>
+                        Kadapa
+                    </center>
+                    </div>
+                </a>
+                
+                    <div id="home">
+                        <a onclick="showhomediv('homediv5')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home5.jpg" alt="home5" >
+                        </div>
+                    </a>
+                        <center>
+                        <div class="rating" data-rating="0">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <b style="font-size: 20px;">&#x20B9;2,54,000</b><br>
+                        2 bds | 2 ba | 1200sqft - Home for sale <br>
+                        3-210, Venkateswara Puram, Krishnapuram <br>
+                        Kadapa
+                    </center>
+                    </div>
+                </a>
+                
+                    <div id="home">
+                        <a onclick="showhomediv('homediv6')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home6.jpg" alt="home6" >
+                        </div>
+                    </a>
+                        <center>
+                        <div class="rating" data-rating="0">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <b style="font-size: 20px;">&#x20B9;2,99,000</b><br>
+                        2 bds | 2 ba | 1300sqft - Home for sale <br>
+                        15/678, Sai Nagar, Nandyal Road <br>
+                        Kadapa
+                    </center>
+                    </div>
+                </a>
+                
+                    <div id="home">
+                        <a onclick="showhomediv('homediv7')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home7.jpg" alt="home7" >
+                        </div>
+                    </a>
+                        <center>
+                        <div class="rating" data-rating="0">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <b style="font-size: 20px;">&#x20B9;3,65,000</b><br>
+                        2 bds |2 ba | 1984sqft - Home for sale <br>
+                        9-87, Rajendra Nagar, Proddatur Main Road <br>
+                        Kadapa
+                    </center>
+                    </div>
+                </a>
+                
+                    <div id="home">
+                        <a onclick="showhomediv('homediv8')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home8.jpg" alt="home8" >
+                        </div>
+                    </a>
+                        <center>
+                        <div class="rating" data-rating="0">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <b style="font-size: 20px;">&#x20B9;3,74,000</b><br>
+                        3 bds | 2 ba | 1620sqft - Home for sale <br>
+                        4/321, Lakshmi Nagar, Cuddapah Bypass Road <br>
+                        Kadapa
+                    </center>
+                    </div>
+                </a>
+                
+                    <div id="home">
+                        <a onclick="showhomediv('homediv9')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home9.jpg" alt="home9" >
+                        </div>
+                    </a>
+                        <center>
+                        <div class="rating" data-rating="0">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <b style="font-size: 20px;">&#x20B9;3,50,000</b><br>
+                        2 bds |2 ba | 1750sqft - Home for sale <br>
+                        10-543, Ramakrishna Puram, YSR Colony <br>
+                        Kadapa
+                        </center>
+                    </div>
+                </a>
+                
+                    <div id="home">
+                        <a onclick="showhomediv('homediv10')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home10.jpg" alt="home10">
+                        </div>
+                    </a>
+                        <center>
+                        <div class="rating" data-rating="0">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <b style="font-size: 20px;">&#x20B9;3,74,000</b><br>
+                        3 bds | 2 ba | 1620sqft - Home for sale <br>
+                        8/765, Srinivasa Nagar, Kadapa Road <br>
+                        Kadapa
+                    </center>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="viewrent">
+        <div id="map2">
+        </div>
+        <div id="houselist">
+            <div id="houselisttitle" style="margin-top: 2%;height: 30px;">
+                <center><font style="font-size: 25px; font-weight: bold;">Homes for Rent</font></center>
+            </div>
+            <div id="houselistcount" style="margin-top: 1%; height: 30px;  ">
+                <font style="font-size: 18px; font-weight: bold; float: left;">10 results found</font>
+                <font style="font-size: 18px; font-weight: bold; float: right;">Filter</font>
+            </div>
+            <div id="shuffle-div1">
+                
+                    <div id="home">
+                        <a onclick="showhomediv('homediv1')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home1.jpg" alt="home1">
+                        </div>
+                        </a>
+                        <center>
+                            <div class="rating" data-rating="0">
+                                <span class="star" data-value="1">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                            </div>
+                        <b style="font-size: 20px;">&#x20B9;15,000</b><br>
+                        2 bds | 2 ba | 984sqft - Home for sale <br>
+                        12-345, Reddy Street, Gandhi Nagar <br>
+                        Kadapa
+                        </center>
+                    </div>
+                </a>
+                
+                    <div id="home">
+                        <a onclick="showhomediv('homediv2')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home2.jpg" alt="home2">
+                        </div>
+                    </a>
+                        <center>
+                            <div class="rating" data-rating="0">
+                                <span class="star" data-value="1">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                            </div>
+                        <b style="font-size: 20px;">&#x20B9;20,000</b><br>
+                        3 bds | 2 ba | 960sqft - Home for sale <br>
+                        7/89, Raju Colony, RTC Road <br>
+                        Kadapa
+                        </center>
+                    </div>
+                </a>
+                    <div id="home">
+                        <a onclick="showhomediv('homediv3')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home3.jpg" alt="home3">
+                        </div>
+                    </a>
+                        <center>
+                            <div class="rating" data-rating="0">
+                                <span class="star" data-value="1">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                            </div>
+                        <b style="font-size: 20px;">&#x20B9;25,000</b><br>
+                        2 bds | 2 ba | 1260sqft - Home for sale <br>
+                        23-456, Prakash Nagar, Railway Colony <br>
+                        Kadapa
+                        </center>
+                    </div>
+                </a>
+                
+                    <div id="home">
+                        <a onclick="showhomediv('homediv4')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home4.jpg" alt="home4">
+                        </div>
+                    </a>
+                        <center>
+                            <div class="rating" data-rating="0">
+                                <span class="star" data-value="1">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                            </div>
+                        <b style="font-size: 20px;">&#x20B9;30,000</b><br>
+                        2 bds | 2 ba | 1344sqft - Home for sale <br>
+                        6/78, Venkataramana Colony, Pulivendula Road <br>
+                        Kadapa
+                        </center>
+                    </div>
+                </a>
+                
+                    <div id="home">
+                        <a onclick="showhomediv('homediv5')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home5.jpg" alt="home5">
+                        </div>
+                    </a>
+                        <center>
+                            <div class="rating" data-rating="0">
+                                <span class="star" data-value="1">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                            </div>
+                        <b style="font-size: 20px;">&#x20B9;35,000</b><br>
+                        2 bds | 2 ba | 1200sqft - Home for sale <br>
+                        3-210, Venkateswara Puram, Krishnapuram <br>
+                        Kadapa
+                        </center>
+                    </div>
+                </a>
+                
+                    <div id="home">
+                        <a onclick="showhomediv('homediv6')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home6.jpg" alt="home6">
+                        </div>
+                    </a>
+                        <center>
+                            <div class="rating" data-rating="0">
+                                <span class="star" data-value="1">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                            </div>
+                        <b style="font-size: 20px;">&#x20B9;40,000</b><br>
+                        2 bds | 2 ba | 1300sqft - Home for sale <br>
+                        15/678, Sai Nagar, Nandyal Road <br>
+                        Kadapa
+                        </center>
+                    </div>
+                </a>
+                
+                    <div id="home">
+                        <a onclick="showhomediv('homediv7')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home7.jpg" alt="home7">
+                        </div>
+                    </a>
+                        <center>
+                            <div class="rating" data-rating="0">
+                                <span class="star" data-value="1">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                            </div>
+                        <b style="font-size: 20px;">&#x20B9;45,000</b><br>
+                        2 bds |2 ba | 1984sqft - Home for sale <br>
+                        9-87, Rajendra Nagar, Proddatur Main Road <br>
+                        Kadapa
+                        </center>
+                    </div>
+                </a>
+                
+                    <div id="home">
+                        <a onclick="showhomediv('homediv8')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home8.jpg" alt="home8">
+                        </div>
+                    </a>
+                        <center>
+                            <div class="rating" data-rating="0">
+                                <span class="star" data-value="1">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                            </div>
+                        <b style="font-size: 20px;">&#x20B9;50,000</b><br>
+                        3 bds | 2 ba | 1620sqft - Home for sale <br>
+                        4/321, Lakshmi Nagar, Cuddapah Bypass Road <br>
+                        Kadapa
+                        </center>
+                    </div>
+                </a>
+                    <div id="home">
+                        <a onclick="showhomediv('homediv9')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home9.jpg" alt="home9">
+                        </div>
+                    </a>
+                        <center>
+                            <div class="rating" data-rating="0">
+                                <span class="star" data-value="1">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                            </div>
+                        <b style="font-size: 20px;">&#x20B9;50,000</b><br>
+                        2 bds |2 ba | 1750sqft - Home for sale <br>
+                        10-543, Ramakrishna Puram, YSR Colony <br>
+                        Kadapa
+                        </center>
+                    </div>
+                </a>
+                
+                    <div id="home">
+                        <a onclick="showhomediv('homediv10')" style="cursor: pointer;">
+                        <div id="homeimg">
+                            <img src="home10.jpg" alt="home10">
+                        </div>
+                    </a>
+                        <center>
+                            <div class="rating" data-rating="0">
+                                <span class="star" data-value="1">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                            </div>
+                        <b style="font-size: 20px;">&#x20B9;60,000</b><br>
+                        3 bds | 2 ba | 1620sqft - Home for sale <br>
+                        8/765, Srinivasa Nagar, Kadapa Road <br>
+                        Kadapa
+                        </center>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

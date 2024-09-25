@@ -1,0 +1,958 @@
+#nav{
+    width: 100%;
+    height: 70px;
+    box-shadow:5px 5px 10px rgba(32, 33, 33, 0.468) ;
+    font-size: 20px;
+}
+#logoname{
+    width: 200px;
+    height: 70px;
+    float: left;
+}
+#navnames{
+    width:910px;
+    height: 40px;
+    float: left;
+    margin-left: 14%;
+    margin-top: 1.25%;
+}
+#navnames li{
+    display: inline;
+}
+#navnames a{
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    padding: 10px 30px;
+}
+#navnames a:hover{
+    font-weight: bold;
+}
+#loginimg{
+    float: right;
+    margin-top: 0.5%;
+    width: 60px;
+}
+#loginimg:hover{
+    background-color: whitesmoke;
+}
+#profilediv{
+    height: 150px;
+    width: 150px;
+    border: 1px solid black;
+    position: absolute;
+    margin-left: 88%;
+    display: none;
+}
+
+#homediv{
+    width: 100%;
+    height: 3120px;
+    margin-top: 2%;
+    
+}
+::-webkit-scrollbar {
+    display: none;
+}
+#intro{
+    height: 400px;
+    width: 45%;
+    float: left;
+    margin-left: 3%;
+}
+#introbg{
+    height: 400px;
+    width: 650px;
+    float: left;
+}
+
+#houses{
+    width: 100%;
+    height: 400px;
+    float: left;
+    margin-top: 2%;
+    overflow: hidden;
+    position: relative;
+}
+#marqueehouses{
+    width: 100%;
+    height: 400px;
+    float: left;
+    margin-top: auto;
+    position: absolute;
+    white-space: nowrap;
+    animation: marquee2 10s linear infinite;
+}
+#houseimg{
+    height: 600px;
+    width:600px;
+    display: inline-block;
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+    margin-top: 0%;
+    margin-left: 0.25%;
+}
+@keyframes marquee2 {
+    0% { transform: translateX(10%); }
+    100% { transform: translateX(-100%); }
+}
+
+#flatrecommendations{
+    height: 510px;
+    width: 100%;
+    float: left;
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#buyflat{
+    float:left;
+    height: 400px;
+    width: 350px;
+    margin-top: 4%;
+    margin-left: 6%;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+}
+#buyflat:hover{
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#sellflat{
+    float:left;
+    height: 400px;
+    width: 350px;
+    margin-top: 4%;
+    margin-left: 6%;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+}
+#sellflat:hover{
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#rentflat{
+    float:left;
+    height: 400px;
+    width: 350px;
+    margin-top: 4%;
+    margin-left: 6%;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+}
+#rentflat:hover{
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#buyflatimage{
+    height: 200px;
+    width: 300px;
+    float: left;
+    margin-left: 7%;
+    margin-top: 2%;
+}
+#sellflatimage{
+    height: 200px;
+    width: 300px;
+    border: 1px solid white;
+    float: left;
+    margin-left: 7%;
+    margin-top: 2%;
+}
+#rentflatimage{
+    height: 200px;
+    width: 300px;
+    float: left;
+    margin-left: 7%;
+    margin-top: 2%;
+}
+#browseflats{
+    font-size: 15px; 
+    margin-bottom: 0%; 
+    height: 40px;
+    width: 150px; 
+    color: black;
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+#seeyouroptions{
+    font-size: 15px; 
+    margin-bottom: 0%; 
+    height: 40px;
+    width: 150px; 
+    color: black;
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+#findrentals{
+    font-size: 15px; 
+    margin-bottom: 0%; 
+    height: 40px;
+    width: 150px; 
+    color: black;
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+#buyflat:hover input[type="submit"]{
+    background-color:black;
+    color: white;
+}
+#sellflat:hover input[type="submit"]{
+    background-color: black;
+    color: white;
+}
+#rentflat:hover input[type="submit"]{
+    background-color:black;
+    color: white;
+}
+
+
+#platformservices{
+    height: 650px;
+    width: 100%;
+    float: left;
+    margin-top: 2%;
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#ser1{
+    height: 200px;
+    width: 300px;
+    float: left;
+    margin: 1.45%;
+    border-radius: 5px;
+}
+#ser2{
+    height: 200px;
+    width: 300px;
+    float: left;
+    margin: 1.45%;
+    border-radius: 5px;
+}
+#ser3{
+    height: 200px;
+    width: 300px;
+    float: left;
+    margin: 1.45%;
+    border-radius: 5px;
+}
+#ser4{
+    height: 200px;
+    width: 300px;
+    float: left;
+    margin: 1.45%;
+    border-radius: 5px;
+}
+#ser5{
+    height: 200px;
+    width: 300px;
+    float: left;
+    margin: 1.45%;
+    border-radius: 5px;
+}
+#ser6{
+    height: 200px;
+    width: 300px;
+    float: left;
+    margin: 1.45%;
+    border-radius: 5px;
+}
+#ser7{
+    height: 200px;
+    width: 300px;
+    float: left;
+    margin: 1.45%;
+    border-radius: 5px;
+}
+#ser8{
+    height: 200px;
+    width: 300px;
+    float: left;
+    margin: 1.45%;
+    border-radius: 5px;
+}
+#ser1:hover{
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#ser2:hover{
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#ser3:hover{
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#ser4:hover{
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#ser5:hover{
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#ser6:hover{
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#ser7:hover{
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#ser8:hover{
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+
+
+
+
+
+#partners{
+    height: 272px;
+    width: 100%;
+    float: left;
+    margin-top: 2%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#marquee{
+    margin-top: 1.5%;
+    position: absolute;
+    white-space: nowrap;
+    animation: marquee 10s linear infinite;
+}
+#partner1{
+    height: 190px;
+    width: 200px;
+    margin-left: 1%;
+    display: inline-block;
+    padding: 5px;
+    margin-right: 10px;
+}
+#partner2{
+    height: 190px;
+    width: 200px;
+    margin-left: 1%;
+    display: inline-block;
+    padding: 5px;
+    margin-right: 10px;
+}
+#partner3{
+    height: 190px;
+    width: 200px;
+    margin-left: 1%;
+    display: inline-block;
+    padding: 5px;
+    margin-right: 10px;
+}
+#partner4{
+    height: 190px;
+    width: 200px;
+    margin-left: 1%;
+    display: inline-block;
+    padding: 5px;
+    margin-right: 10px;
+}
+#partner5{
+    height: 190px;
+    width: 200px;
+    margin-left: 1%;
+    display: inline-block;
+    padding: 5px;
+    margin-right: 10px;
+}
+#partner6{
+    height: 190px;
+    width: 200px;
+    margin-left: 1%;
+    display: inline-block;
+    padding: 5px;
+    margin-right: 10px;
+}
+#partner7{
+    height: 190px;
+    width: 200px;
+    margin-left: 1%;
+    display: inline-block;
+    padding: 5px;
+    margin-right: 10px;
+}
+#partner8{
+    height: 190px;
+    width: 200px;
+    margin-left: 1%;
+    display: inline-block;
+    padding: 5px;
+    margin-right: 10px;
+}
+#partner9{
+    height: 190px;
+    width: 200px;
+    margin-left: 1%;
+    display: inline-block;
+    padding: 5px;
+    margin-right: 10px;
+}
+#partner10{
+    height: 190px;
+    width: 200px;
+    margin-left: 1%;
+    display: inline-block;
+    padding: 5px;
+    margin-right: 10px;
+}
+@keyframes marquee {
+    0%   { transform: translateX(5%); }
+    100% { transform: translateX(-50%); }
+}
+#partnerlogo{
+    width: 120px;
+    height: 120px;
+    border-radius: 100px;
+    float: left;
+    margin-left: 19%;
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+
+
+
+
+#reviews{
+    height: 400px;
+    width: 100%;
+    float: left;
+    margin-top: 2%;
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#rv1{
+    height: 300px;
+    width: 300px;
+    float: left;
+    margin-top: 2%;
+    margin-left: 2.8%;
+    border-radius: 5px;
+}
+#rv2{
+    height: 300px;
+    width: 300px;
+    float: left;
+    margin-top: 2%;
+    margin-left: 2%;
+    border-radius: 5px;
+}
+#rv3{
+    height: 300px;
+    width: 300px;
+    float: left;
+    margin-top: 2%;
+    margin-left: 2%;
+    border-radius: 5px;
+}
+#rv4{
+    height: 300px;
+    width: 300px;
+    float: left;
+    margin-top: 2%;
+    margin-left: 2%;
+    border-radius: 5px;
+}
+#rv1:hover{
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#rv2:hover{
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#rv3:hover{
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#rv4:hover{
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+
+
+
+#about{
+    height: 350px;
+    width:100%;
+    float: left;
+}
+#about a{
+    text-decoration: none;
+    color: black;
+}
+#about li:hover{
+    font-weight: bold;
+}
+#aboutweb{
+    height: 250px;
+    width: 310px;
+    float: left;
+    margin-left: 0%;
+    margin-top: 5%;
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#about1{
+    height: 250px;
+    width: 250px;
+    float: left;
+    margin-left: 3%;
+    margin-top: 5%;
+}
+#about2{
+    height: 250px;
+    width: 200px;
+    float: left;
+    margin-left: 3%;
+    margin-top: 5%;
+}
+#about3{
+    height:250px;
+    width: 200px;
+    float: left;
+    margin-left: 3%;
+    margin-top: 5%;
+}
+#about4{
+    height: 250px;
+    width: 200px;
+    float: left;
+    margin-left: 3%;
+    margin-top: 5%;
+}
+.footer{
+    height: 30px; 
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    float: left;
+}
+
+
+#viewbuy{
+    width: 100%;
+    height: 550px;
+    /* border: 1px solid black; */
+    display: none;
+    overflow-y: auto;
+}
+#viewrent{
+    width: 100%;
+    height: 550px;
+    /* border: 1px solid black; */
+    display: none;
+}
+#map1{   
+    width: 49.7%;
+    height: 550px;
+    float: left;
+    position: relative;
+    z-index: 1;
+    /* border: 1px solid black; */
+}
+#map2{   
+    width: 49.7%;
+    height: 550px;
+    float: left;
+    position: relative;
+    z-index: 1;
+    /* border: 1px solid black; */
+}
+#houselist{
+    width: 50%;
+    height: 550px;
+    float: right;
+    /* border: 1px solid black; */
+    overflow-y: auto;
+}
+#home{
+    height: 370px;
+    width: 500px;
+    border: 3px solid black;
+    float: left;
+    margin-left: 13%;
+    margin-top: 2%;
+}
+#home:hover{
+    box-shadow: 5px 5px 10px rgba(32, 33, 33, 0.468);
+}
+#homeimg{
+    height: 250px;
+    width: 500px;
+
+}
+#homeimg img{
+    height: 250px;
+    width: 500px;
+}
+.rating {
+    font-size: 30px;
+    cursor: pointer;
+}
+.star {
+    color: grey;
+}
+.star:hover,
+.star.active {
+    color: gold;
+}
+#homediv1{
+    height: 600px;
+    width: 1200px;
+    border:5px solid black;
+    position: absolute;
+    margin-left: 6%;
+    display: none;
+    z-index: 2;
+    background-color: white;
+    overflow-y: hidden;
+}
+#homediv2{
+    height: 600px;
+    width: 1200px;
+    border:5px solid black;
+    position: absolute;
+    margin-left: 6%;
+    display: none;
+    z-index: 2;
+    background-color: white;
+    overflow-y: hidden;
+}
+#homediv3{
+    height: 600px;
+    width: 1200px;
+    border:5px solid black;
+    position: absolute;
+    margin-left: 6%;
+    display: none;
+    z-index: 2;
+    background-color: white;
+    overflow-y: hidden;
+}
+#homediv4{
+    height: 600px;
+    width: 1200px;
+    border:5px solid black;
+    position: absolute;
+    margin-left: 6%;
+    display: none;
+    z-index: 2;
+    background-color: white;
+    overflow-y: hidden;
+}
+#homediv5{
+    height: 600px;
+    width: 1200px;
+    border:5px solid black;
+    position: absolute;
+    margin-left: 6%;
+    display: none;
+    z-index: 2;
+    background-color: white;
+    overflow-y: hidden;
+}
+#homediv6{
+    height: 600px;
+    width: 1200px;
+    border:5px solid black;
+    position: absolute;
+    margin-left: 6%;
+    display: none;
+    z-index: 2;
+    background-color: white;
+    overflow-y: hidden;
+}
+#homediv7{
+    height: 600px;
+    width: 1200px;
+    border:5px solid black;
+    position: absolute;
+    margin-left: 6%;
+    display: none;
+    z-index: 2;
+    background-color: white;
+    overflow-y: hidden;
+}
+#homediv8{
+    height: 600px;
+    width: 1200px;
+    border:5px solid black;
+    position: absolute;
+    margin-left: 6%;
+    display: none;
+    z-index: 2;
+    background-color: white;
+    overflow-y: hidden;
+}
+#homediv9{
+    height: 600px;
+    width: 1200px;
+    border:5px solid black;
+    position: absolute;
+    margin-left: 6%;
+    display: none;
+    z-index: 2;
+    background-color: white;
+    overflow-y: hidden;
+}
+#homediv10{
+    height: 600px;
+    width: 1200px;
+    border:5px solid black;
+    position: absolute;
+    margin-left: 6%;
+    display: none;
+    z-index: 2;
+    background-color: white;
+    overflow-y:hidden;
+}
+.slideshow-image {
+    width:700px;
+    height: 400px;
+    display: block;
+    margin: 0 auto; 
+}
+.homeslideshow1{
+    position: relative;
+    width: 700px;
+    height: 400px;
+    margin: auto;
+    overflow: hidden;
+    border: 3px solid black;
+    margin: 1%;
+    float: left;
+}
+#homedetails1{
+    height: 400px;
+    width: 445px;
+    border: 3px solid black;
+    float: left;
+    margin-top: 1%;
+    overflow-y: auto;
+}
+#homedesc1{
+    height: 110px;
+    width: 1170px;
+    border: 3px solid black;
+    margin-left: 1%;
+    float: left;
+}
+.homeslideshow2{
+    position: relative;
+    width: 700px;
+    height: 400px;
+    margin: auto;
+    overflow: hidden;
+    border: 3px solid black;
+    margin: 1%;
+    float: left;
+}
+#homedetails2{
+    height: 400px;
+    width: 445px;
+    border: 3px solid black;
+    float: left;
+    margin-top: 1%;
+    overflow-y: auto;
+}
+#homedesc2{
+    height: 110px;
+    width: 1170px;
+    border: 3px solid black;
+    margin-left: 1%;
+    float: left;
+}
+.homeslideshow3{
+    position: relative;
+    width: 700px;
+    height: 400px;
+    margin: auto;
+    overflow: hidden;
+    border: 3px solid black;
+    margin: 1%;
+    float: left;
+}
+#homedetails3{
+    height: 400px;
+    width: 445px;
+    border: 3px solid black;
+    float: left;
+    margin-top: 1%;
+    overflow-y: auto;
+}
+#homedesc3{
+    height: 110px;
+    width: 1170px;
+    border: 3px solid black;
+    margin-left: 1%;
+    float: left;
+}
+.homeslideshow4{
+    position: relative;
+    width: 700px;
+    height: 400px;
+    margin: auto;
+    overflow: hidden;
+    border: 3px solid black;
+    margin: 1%;
+    float: left;
+}
+#homedetails4{
+    height: 400px;
+    width: 445px;
+    border: 3px solid black;
+    float: left;
+    margin-top: 1%;
+    overflow-y: auto;
+}
+#homedesc4{
+    height: 110px;
+    width: 1170px;
+    border: 3px solid black;
+    margin-left: 1%;
+    float: left;
+}
+.homeslideshow5{
+    position: relative;
+    width: 700px;
+    height: 400px;
+    margin: auto;
+    overflow: hidden;
+    border: 3px solid black;
+    margin: 1%;
+    float: left;
+}
+#homedetails5{
+    height: 400px;
+    width: 445px;
+    border: 3px solid black;
+    float: left;
+    margin-top: 1%;
+    overflow-y: auto;
+}
+#homedesc5{
+    height: 110px;
+    width: 1170px;
+    border: 3px solid black;
+    margin-left: 1%;
+    float: left;
+}
+.homeslideshow6{
+    position: relative;
+    width: 700px;
+    height: 400px;
+    margin: auto;
+    overflow: hidden;
+    border: 3px solid black;
+    margin: 1%;
+    float: left;
+}
+#homedetails6{
+    height: 400px;
+    width: 445px;
+    border: 3px solid black;
+    float: left;
+    margin-top: 1%;
+    overflow-y: auto;
+}
+#homedesc6{
+    height: 110px;
+    width: 1170px;
+    border: 3px solid black;
+    margin-left: 1%;
+    float: left;
+}
+.homeslideshow7{
+    position: relative;
+    width: 700px;
+    height: 400px;
+    margin: auto;
+    overflow: hidden;
+    border: 3px solid black;
+    margin: 1%;
+    float: left;
+}
+#homedetails7{
+    height: 400px;
+    width: 445px;
+    border: 3px solid black;
+    float: left;
+    margin-top: 1%;
+    overflow-y: auto;
+}
+#homedesc7{
+    height: 110px;
+    width: 1170px;
+    border: 3px solid black;
+    margin-left: 1%;
+    float: left;
+}
+.homeslideshow8{
+    position: relative;
+    width: 700px;
+    height: 400px;
+    margin: auto;
+    overflow: hidden;
+    border: 3px solid black;
+    margin: 1%;
+    float: left;
+}
+#homedetails8{
+    height: 400px;
+    width: 445px;
+    border: 3px solid black;
+    float: left;
+    margin-top: 1%;
+    overflow-y: auto;
+}
+#homedesc8{
+    height: 110px;
+    width: 1170px;
+    border: 3px solid black;
+    margin-left: 1%;
+    float: left;
+}
+.homeslideshow9{
+    position: relative;
+    width: 700px;
+    height: 400px;
+    margin: auto;
+    overflow: hidden;
+    border: 3px solid black;
+    margin: 1%;
+    float: left;
+}
+#homedetails9{
+    height: 400px;
+    width: 445px;
+    border: 3px solid black;
+    float: left;
+    margin-top: 1%;
+    overflow-y: auto;
+}
+#homedesc9{
+    height: 110px;
+    width: 1170px;
+    border: 3px solid black;
+    margin-left: 1%;
+    float: left;
+}
+.homeslideshow10{
+    position: relative;
+    width: 700px;
+    height: 400px;
+    margin: auto;
+    overflow: hidden;
+    border: 3px solid black;
+    margin: 1%;
+    float: left;
+}
+#homedetails10{
+    height: 400px;
+    width: 445px;
+    border: 3px solid black;
+    float: left;
+    margin-top: 1%;
+    overflow-y: auto;
+}
+#homedesc10{
+    height: 110px;
+    width: 1170px;
+    border: 3px solid black;
+    margin-left: 1%;
+    float: left;
+}
+#hd2{
+    margin: 10px;
+    font-size: 20px;
+}
