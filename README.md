@@ -2,6 +2,13 @@
 
 Website link: https://ragulakarthik.github.io/6K_Homes/6KHomes.html
 
+![image](https://github.com/user-attachments/assets/4535e3a6-af0f-4c46-ad71-f553796b9681)
+![image](https://github.com/user-attachments/assets/af6ace6a-6d9c-4455-8690-beaa5bdf7d84)
+![image](https://github.com/user-attachments/assets/831d94bf-824e-4708-969f-b18b4e2b5f42)
+![image](https://github.com/user-attachments/assets/163e4019-ea7b-49d8-9050-a7447ffbdfdb)
+![image](https://github.com/user-attachments/assets/ebad2148-c816-454f-b1e0-5f36f241edfb)
+
+
 
 6K Homes is a comprehensive web-based platform for renting, selling, and buying homes, apartments, and flats across various locations. It provides a user-friendly interface to explore real estate options, ensuring a seamless experience for users looking for properties to rent, sell, or buy.
 
