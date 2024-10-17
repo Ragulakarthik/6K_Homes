@@ -7,6 +7,8 @@ Website link: https://ragulakarthik.github.io/6K_Homes/6KHomes.html
 ![image](https://github.com/user-attachments/assets/831d94bf-824e-4708-969f-b18b4e2b5f42)
 ![image](https://github.com/user-attachments/assets/163e4019-ea7b-49d8-9050-a7447ffbdfdb)
 ![image](https://github.com/user-attachments/assets/ebad2148-c816-454f-b1e0-5f36f241edfb)
+![image](https://github.com/user-attachments/assets/c73e9635-acef-4454-b888-f0cfbee22748)
+![image](https://github.com/user-attachments/assets/6330dc79-0efb-4574-96be-8d88a7ac1632)
 
 
 
